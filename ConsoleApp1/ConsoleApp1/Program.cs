@@ -8,8 +8,12 @@ namespace ConsoleApp1
 {
     internal class Program
     {
+        public static List<Characters> character = new List<Characters>();
+        public static List<player> player = new List<player>();
         static void Main(string[] args)
         {
+ 
+
         }
     }
 }
