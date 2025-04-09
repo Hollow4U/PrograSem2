@@ -34,7 +34,7 @@ namespace ConsoleApp1
             Random random = new Random();
             int ranNum = random.Next(1, 21);
 
-            if (ranNum >= Program.pc[i].ac)
+            if (ranNum >= Program.player[i].ac)
             {
                 Console.WriteLine($"{name} impacta a {Program.player[i].name}");
                 Program.player[i].lostLife(damageCheck());
@@ -57,5 +57,7 @@ namespace ConsoleApp1
             Console.WriteLine($"Tiras {daño}d4 ={damagelimit}");
             return damagelimit;
         }
+
+
     }
 }
