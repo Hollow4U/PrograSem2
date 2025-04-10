@@ -20,19 +20,34 @@ namespace ConsoleApp1
             this.ac = ac;
             this.dmgBonus = dmgBonus;
         }
-        public override void attack(int i)
+        public void attackMelee(int i)
         {
-            Console.WriteLine($"{name} ataca a {Program.character[i].name}");
+            Console.WriteLine($"{name} ataca a {Program.enemyM[i].name}");
             Random random = new Random();
             int ranNum = random.Next(1, 21);
-            if (ranNum + dmgBonus >= Program.character[i].ac)
+            if (ranNum + dmgBonus >= Program.enemyM[i].ac)
             {
-                Console.WriteLine($"{name} impacta a {Program.character[i].name}");
-                Program.character[i].lostLife(damageCheck());
+                Console.WriteLine($"{name} impacta a {Program.enemyM[i].name}");
+                Program.enemyM[i].lostLife(damageCheck());
             }
             else
             {
-                Console.WriteLine($"{name} falla al atacar a {Program.character[i].name}");
+                Console.WriteLine($"{name} falla al atacar a {Program.enemyM[i].name}");
+            }
+        }
+        public void attackRange(int i)
+        {
+            Console.WriteLine($"{name} ataca a {Program.enemyR[i].name}");
+            Random random = new Random();
+            int ranNum = random.Next(1, 21);
+            if (ranNum + dmgBonus >= Program.enemyR[i].ac)
+            {
+                Console.WriteLine($"{name} impacta a {Program.enemyR[i].name}");
+                Program.enemyR[i].lostLife(damageCheck());
+            }
+            else
+            {
+                Console.WriteLine($"{name} falla al atacar a {Program.enemyR[i].name}");
             }
         }
 
@@ -67,7 +82,7 @@ namespace ConsoleApp1
                             {
                                 if (enemyMtarget >= 0 && enemyMtarget < Program.enemyR.Count)
                                 {
-                                    Program.player[0].attack(enemyMtarget);
+                                    Program.player[0].attackMelee(enemyMtarget);
                                     meleeout = true;
                                 }
                                 else
@@ -91,7 +106,7 @@ namespace ConsoleApp1
                             {
                                 if (enemyRtarget >= 0 && enemyRtarget < Program.enemyR.Count)
                                 {
-                                    Program.player[0].attack(enemyRtarget);
+                                    Program.player[0].attackRange(enemyRtarget);
                                     rangeout = true;
                                 }
                                 else
