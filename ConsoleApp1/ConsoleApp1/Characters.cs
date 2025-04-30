@@ -9,7 +9,7 @@ namespace ConsoleApp1
     internal class Characters
     {
         public string name;
-        protected int vida;
+        public int vida;
         protected int daño;
         public int ac;
 

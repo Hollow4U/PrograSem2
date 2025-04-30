@@ -17,6 +17,6 @@ namespace ConsoleApp1
             this.ac = ac;
             this.alive = alive;
         }
-        public abstract void Alive();
+        public abstract void Alive(int i);
     }
 }

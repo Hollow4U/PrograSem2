@@ -54,7 +54,7 @@ namespace ConsoleApp1
 
         public virtual void rowCheck()
         {
-            if (Program.meleeCount > 0 && Program.rangeCount > 0)
+            if (Program.enemyM.Count > 0 || Program.enemyR.Count > 0)
             {
                 bool salir = false;
 
@@ -83,6 +83,7 @@ namespace ConsoleApp1
                                 if (enemyMtarget >= 0 && enemyMtarget < Program.enemyR.Count)
                                 {
                                     Program.player[0].attackMelee(enemyMtarget);
+                                    salir = true;
                                     meleeout = true;
                                 }
                                 else
@@ -107,17 +108,21 @@ namespace ConsoleApp1
                                 if (enemyRtarget >= 0 && enemyRtarget < Program.enemyR.Count)
                                 {
                                     Program.player[0].attackRange(enemyRtarget);
-                                    rangeout = true;
+                                    salir = true;
+                                    rangeout = true; 
                                 }
                                 else
                                 {
                                     Console.WriteLine("No existe ese enemigo");
+                                    rangeout = true;
                                 }
+
                             }
                             break;
 
                         default:
                             Console.WriteLine("Opcion no valida");
+                            rangeout = true;
                             break;
                     }
 

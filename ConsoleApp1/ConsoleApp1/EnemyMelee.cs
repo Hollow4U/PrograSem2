@@ -19,11 +19,12 @@ namespace ConsoleApp1
 
         }
 
-        public override void Alive()
+        public override void Alive(int i)
         {
             if(vida <= 0)
             {
                 alive = false;
+                Program.enemyM.RemoveAt(i);
                 Console.WriteLine($"{name} esta muerto");
             }
         }

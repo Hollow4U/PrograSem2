@@ -18,7 +18,7 @@ namespace ConsoleApp1
             this.alive = alive;
             this.ammo = ammo;   
         }
-        public override void Alive()
+        public override void Alive(int i)
         {
             if (vida <= 0)
             {
@@ -38,11 +38,13 @@ namespace ConsoleApp1
                 if (ranNum >= Program.player[i].ac)
                 {
                     Console.WriteLine($"{name} impacta a {Program.player[i].name}");
+                    ammo -= 1;
                     Program.player[i].lostLife(damageCheck());
                 }
                 else
                 {
                     Console.WriteLine($"{name} falla al atacar a {Program.player[i].name}");
+                    ammo -= 1;
                 }
             }
             else
